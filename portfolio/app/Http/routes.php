@@ -14,3 +14,28 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// GET POST PUT DELETE
+
+Route::get('about', function () {
+    return '<h1>about page</h1>';
+});
+
+//as is a function calling as allias
+Route::get('about/directions', array('as' => 'directionsAll',function () {
+    $theURL = URL::route('directionsAll');
+    return "this url is {$theURL}";
+}));
+
+
+Route::any('submit', function () {
+    return '<h1>form</h1>';
+});
+
+Route::get('about/{subject}', function ($subject) {
+    return $subject .' page';
+});
+
+Route::get('about/classes/{subject}', function ($subject) {
+    return "page for $subject";
+});
