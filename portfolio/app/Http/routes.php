@@ -39,3 +39,15 @@ Route::get('about/{subject}', function ($subject) {
 Route::get('about/classes/{subject}', function ($subject) {
     return "page for $subject";
 });
+
+
+Route::get('about/classes/{theArt}/{theSomething}', function ($a,$b) {
+   return "<h1>welcome to $a in $b</h1>";
+});
+
+//redirect two ways
+Route::get('where',function(){
+   return Redirect::to('about/directions');
+    //return Redirect::route('directions');
+});
+
