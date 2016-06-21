@@ -15,18 +15,45 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// GET POST PUT DELETE
 
+/*
+Route::get('/', ['middleware'=>'auth.basic',function () {
+    return view('welcome');
+}]);
+
+*/
+
+//using controller
+//order of the routes are really important
+
+Route::get('about', 'AboutController@showAbout');
+
+Route::get('about/directions', ['uses'=>'AboutController@showDirections', 'as' =>'directions']);
+
+Route::get('about/{theSubject}', 'AboutController@showSubject');
+
+
+
+// GET POST PUT DELETE
+/*
 Route::get('about', function () {
     return '<h1>about page</h1>';
 });
+*/
+
+
+
+
+
+
 
 //as is a function calling as allias
+/*
 Route::get('about/directions', array('as' => 'directionsAll',function () {
     $theURL = URL::route('directionsAll');
     return "this url is {$theURL}";
 }));
-
+*/
 
 Route::any('submit', function () {
     return '<h1>form</h1>';
@@ -50,4 +77,8 @@ Route::get('where',function(){
    return Redirect::to('about/directions');
     //return Redirect::route('directions');
 });
+
+
+
+
 
