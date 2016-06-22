@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $theLandmarks=["big bend NP","Yosemite NP","Arches NP"];
+    return view('welcome',['mylocation'=>'usa', 'weather'=>'sunnyi','theLandmarks'=>$theLandmarks]);
 });
 
 
@@ -78,7 +79,11 @@ Route::get('where',function(){
     //return Redirect::route('directions');
 });
 
-
-
+Route::get('videos',function(){
+    return view('videos');
+});
+Route::get('newpage',function(){
+    return view('newpage');
+});
 
 

@@ -5,7 +5,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" href="<?php echo asset('css/main.css'); ?>" >
+        <link rel="stylesheet" href="{{URL::asset('css/main.css')}}">
 
 
         <style>
@@ -41,8 +41,27 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title highlight">Laravel 5</div>
+                <div class="title highlight">Blade has arrived in {{$mylocation}} on {{date('M/d/Y')}}</div>
             </div>
+            {{--this a commend--}}
+            @if($weather=='sunny')
+                <p>It's a {{$weather}} day</p>
+
+            @else
+                <p>No weather available.</p>
+            @endif
+            <hr>
+            <ul>
+                @foreach($theLandmarks as $landmark)
+                    @unless($landmark =="Yosemite NP")
+                    <li>
+                        {{$landmark}}
+                    </li>
+                    @endunless
+                    @endforeach
+            </ul>
+
+
         </div>
     </body>
 </html>

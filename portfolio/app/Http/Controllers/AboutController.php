@@ -11,7 +11,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class AboutController extends BaseController
 {
     public function showAbout(){
-        return 'NEW ABOUT PAGE';
+        return view('about');
     }
 
     public function showSubject($a){
