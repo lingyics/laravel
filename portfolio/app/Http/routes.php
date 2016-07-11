@@ -86,4 +86,11 @@ Route::get('newpage',function(){
     return view('newpage');
 });
 
+Route::get('signup',function(){
+    return view('signup');
+});
 
+Route::post('thanks',function(){
+    $theEmail =Request::get('email');
+    return view('thanks')->with('theEmail',$theEmail);
+});
